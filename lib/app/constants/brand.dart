@@ -18,3 +18,21 @@ class CustomBrands extends Brand {
         messaging: ColorMessagingLight());
   }
 }
+
+class AppDemoBrand extends Brand {
+  @override
+  ColorTokens getColorTokens(bool isDarkMode) {
+    return ColorTokens(
+        brand: ColorBrand(
+            main: Colors.blue,
+            dark: Colors.blue.shade900,
+            secondary: Colors.blueGrey,
+            background: Colors.white),
+        interaction: ColorInteraction(
+            main: Colors.blue.shade300,
+            hover: Colors.blue.shade200,
+            pressed: Colors.blue.shade400),
+        neutral: ColorNeutralLight(),
+        messaging: ColorMessagingLight());
+  }
+}
