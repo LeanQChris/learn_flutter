@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_design_extension/flutter_design_extension.dart';
 import 'package:flutter_module_architecture/flutter_module_architecture.dart';
 import 'package:learn_flutter/app/constants/brand.dart';
+import 'package:learn_flutter/app/constants/locale.dart';
 import 'package:learn_flutter/app/di/app_container.dart';
 import 'package:learn_flutter/modules/abn/view/abn_screen.dart';
 
@@ -13,6 +14,7 @@ class LearnFlutterApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlutterDesignApp(
         brand: CustomBrands(),
+        languages: locales,
         materialApp: (localeResolutionCallback, localizationsDelegates,
             supportedLocales, locale, theme) {
           return FlutterModule.buildRootRouter(
@@ -21,6 +23,9 @@ class LearnFlutterApp extends StatelessWidget {
                     theme: theme.copyWith(useMaterial3: true),
                     localizationsDelegates: localizationsDelegates,
                     routerDelegate: routerDelegate,
+                    supportedLocales: supportedLocales,
+                    localeResolutionCallback: localeResolutionCallback,
+                    locale: locale,
                     routeInformationParser: routeInformationParser);
               },
               rootPages: () async {
